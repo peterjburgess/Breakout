@@ -69,7 +69,7 @@ public class Breakout extends GraphicsProgram {
 	private void boardSetup(){
 		
 		//initialise top of the board
-		int yCoord = BRICK_SEP;
+		int yCoord = 100;
 		for(int i = 0; i < NBRICK_ROWS; i++){
 			Color color = setColor(i);
 			createRow(color, yCoord);
@@ -77,6 +77,7 @@ public class Breakout extends GraphicsProgram {
 		}
 		
 	}
+	
 	
 	/*
 	 * This creates the rows of bricks one at a time centred on the graphics window
