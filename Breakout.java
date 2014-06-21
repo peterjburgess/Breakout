@@ -124,7 +124,7 @@ public class Breakout extends GraphicsProgram {
 	 */
 	private void addPaddle(){
 		int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
-		int yCoord = HEIGHT - 30//PADDLE_Y_OFFSET;
+		int yCoord = HEIGHT - 30;//PADDLE_Y_OFFSET;
 		GRect paddle = new GRect (xCoord, yCoord, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
