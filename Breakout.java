@@ -58,7 +58,39 @@ public class Breakout extends GraphicsProgram {
 
 /** Runs the Breakout program. */
 	public void run() {
-		/* You fill this in, along with any subsidiary methods */
+		boardSetup();	//sets up the board
+	}
+	
+	/*
+	 * sets up the board at the start of the game based on the number of bricks per row, 
+	 * the number of rows and the brick separation
+	 */
+	
+	private void boardSetup(){
+		
+		//initialise top of the board
+		int yCoord = BRICK_SEP;
+		for(int i = 0; i < NBRICK_ROWS; i++){
+			Color color = Color.blue;
+			createRow(color, yCoord);
+			yCoord += BRICK_HEIGHT + BRICK_SEP;
+		}
+		
+	}
+	
+	/*
+	 * This creates the rows of bricks one at a time centred on the graphics window
+	 */
+	private void createRow(Color color, int yCoord){
+		//find centre of window
+		int windowCentre = getWidth()/2;
+		//find starting x coord
+		int xCoord = windowCentre - WIDTH/2;
+		//add bricks to graphics window
+		for(int i = 0; i < NBRICKS_PER_ROW; i++){
+			GRect rect = new GRect(xCoord, yCoord, BRICK_WIDTH, BRICK_HEIGHT); 
+			add(rect);
+		}
 	}
 
 }
