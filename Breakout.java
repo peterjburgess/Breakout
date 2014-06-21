@@ -80,7 +80,7 @@ public class Breakout extends GraphicsProgram {
 	
 	
 	/*
-	 * This creates the rows of bricks one at a time centred on the graphics window
+	 * This creates the rows of bricks one at a time centred in the graphics window
 	 */
 	private void createRow(Color color, int yCoord){
 		//find centre of window
