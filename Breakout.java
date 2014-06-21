@@ -70,11 +70,13 @@ public class Breakout extends GraphicsProgram {
 		
 		//initialise top of the board
 		int yCoord = 100;
+		//add bricks
 		for(int i = 0; i < NBRICK_ROWS; i++){
 			Color color = setColor(i);
 			createRow(color, yCoord);
 			yCoord += BRICK_HEIGHT + BRICK_SEP;
 		}
+		addPaddle();
 		
 	}
 	
@@ -115,6 +117,17 @@ public class Breakout extends GraphicsProgram {
 		}
 		else return Color.CYAN;
 		
+	}
+	
+	/*
+	 * Adds paddle to the game board at the start
+	 */
+	private void addPaddle(){
+		int xCoord = getWidth()/2 - PADDLE_WIDTH / 2;
+		int yCoord = getHeight() - PADDLE_Y_OFFSET;
+		GRect paddle = new GRect (xCoord, yCoord, PADDLE_WIDTH, PADDLE_HEIGHT);
+		paddle.setFilled(true);
+		add(paddle);
 	}
 
 }
