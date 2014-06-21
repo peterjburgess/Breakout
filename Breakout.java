@@ -123,8 +123,8 @@ public class Breakout extends GraphicsProgram {
 	 * Adds paddle to the game board at the start
 	 */
 	private void addPaddle(){
-		int xCoord = getWidth()/2 - PADDLE_WIDTH / 2;
-		int yCoord = getHeight() - PADDLE_Y_OFFSET;
+		int xCoord = WIDTH - PADDLE_WIDTH / 2;
+		int yCoord = HEIGHT - PADDLE_Y_OFFSET;
 		GRect paddle = new GRect (xCoord, yCoord, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
