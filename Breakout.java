@@ -86,7 +86,7 @@ public class Breakout extends GraphicsProgram {
 		//find centre of window
 		int windowCentre = getWidth()/2;
 		//find starting x coord
-		int xCoord = windowCentre - WIDTH/2;
+		int xCoord = windowCentre - WIDTH/2 + BRICK_SEP;
 		//add bricks to graphics window
 		for(int i = 0; i < NBRICKS_PER_ROW; i++){
 			GRect rect = new GRect(xCoord, yCoord, BRICK_WIDTH, BRICK_HEIGHT); 
