@@ -69,10 +69,11 @@ public class Breakout extends GraphicsProgram {
 	private void boardSetup(){
 		
 		//initialise top of the board
+		int yCoord = BRICK_Y_OFFSET;
 		//add bricks
 		for(int i = 0; i < NBRICK_ROWS; i++){
 			Color color = setColor(i);
-			createRow(color);
+			createRow(color, yCoord);
 			yCoord += BRICK_HEIGHT + BRICK_SEP;
 		}
 		addPaddle();
@@ -83,14 +84,14 @@ public class Breakout extends GraphicsProgram {
 	/*
 	 * This creates the rows of bricks one at a time centred in the graphics window
 	 */
-	private void createRow(Color color){
+	private void createRow(Color color, int yCoord){
 		//find centre of window
 		int windowCentre = getWidth()/2;
 		//find starting x coord
 		int xCoord = windowCentre - WIDTH/2 + BRICK_SEP /2;
 		//add bricks to graphics window
 		for(int i = 0; i < NBRICKS_PER_ROW; i++){
-			GRect rect = new GRect(xCoord, BRICK_Y_OFFSET, BRICK_WIDTH, BRICK_HEIGHT); 
+			GRect rect = new GRect(xCoord, yCoord, BRICK_WIDTH, BRICK_HEIGHT); 
 			rect.setFilled(true);
 			rect.setFillColor(color);
 			add(rect);
