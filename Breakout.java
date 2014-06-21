@@ -90,6 +90,7 @@ public class Breakout extends GraphicsProgram {
 		for(int i = 0; i < NBRICKS_PER_ROW; i++){
 			GRect rect = new GRect(xCoord, yCoord, BRICK_WIDTH, BRICK_HEIGHT); 
 			add(rect);
+			xCoord += BRICK_WIDTH + BRICK_SEP;
 		}
 	}
 
