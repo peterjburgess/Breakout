@@ -29,7 +29,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int PADDLE_HEIGHT = 10;
 
 /** Offset of the paddle up from the bottom */
-	private static final int PADDLE_Y_OFFSET = 0;
+	private static final int PADDLE_Y_OFFSET = -20;
 
 /** Number of bricks per row */
 	private static final int NBRICKS_PER_ROW = 10;
