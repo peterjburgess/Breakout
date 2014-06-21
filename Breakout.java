@@ -106,7 +106,13 @@ public class Breakout extends GraphicsProgram {
 		else if (i<4){
 			return Color.ORANGE;
 		}
-		else return Color.green;
+		else if (i<6){
+			return Color.YELLOW;
+		}
+		else if (i<8){
+			return Color.GREEN;
+		}
+		else return Color.CYAN;
 		
 	}
 
