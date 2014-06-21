@@ -71,7 +71,7 @@ public class Breakout extends GraphicsProgram {
 		//initialise top of the board
 		int yCoord = BRICK_SEP;
 		for(int i = 0; i < NBRICK_ROWS; i++){
-			Color color = Color.blue;
+			Color color = setColor(i);
 			createRow(color, yCoord);
 			yCoord += BRICK_HEIGHT + BRICK_SEP;
 		}
@@ -94,6 +94,20 @@ public class Breakout extends GraphicsProgram {
 			add(rect);
 			xCoord += BRICK_WIDTH + BRICK_SEP;
 		}
+	}
+	
+	/*
+	 * Sets the color scheme for the bricks
+	 */
+	private Color setColor(int i){
+		if(i < 2){
+			return Color.RED;
+		}
+		else if (i<4){
+			return Color.ORANGE;
+		}
+		else return Color.green;
+		
 	}
 
 }
