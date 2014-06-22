@@ -124,7 +124,7 @@ public class Breakout extends GraphicsProgram {
 	 */
 	private void addPaddle(){
 		int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
-		yPaddle = HEIGHT - PADDLE_Y_OFFSET;
+		int yPaddle = HEIGHT - PADDLE_Y_OFFSET;
 		GRect paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
@@ -132,7 +132,6 @@ public class Breakout extends GraphicsProgram {
 	
 	//private instance variables
 	private GObject gObj;
-	private GRect paddle; //initialises paddle as a GRect
 	private GPoint last; //gives me the last xCoord of the paddle
-	private int yPaddle; //sets the y location of the paddle
+
 }
