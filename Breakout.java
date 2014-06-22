@@ -59,7 +59,7 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	public void run() {
 		boardSetup();	//sets up the board
-		addMouseListeners();
+
 	}
 	
 	public void MousePressed(MouseEvent e){
@@ -90,6 +90,7 @@ public class Breakout extends GraphicsProgram {
 			yCoord += BRICK_HEIGHT + BRICK_SEP;
 		}
 		addPaddle();
+		addMouseListeners();
 		
 	}
 	
