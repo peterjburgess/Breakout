@@ -9,13 +9,7 @@ public class DragObject extends GraphicsProgram {
 /* Initializes the program */
    public void init() {
       GRect rect = new GRect(100, 100, 150, 100);
-      rect.setFilled(true);
-      rect.setColor(Color.RED);
-      add(rect);
       GOval oval = new GOval(300, 115, 100, 70);
-      oval.setFilled(true);
-      oval.setColor(Color.GREEN);
-      add(oval);
       addMouseListeners();
    }
 
