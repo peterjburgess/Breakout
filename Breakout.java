@@ -57,12 +57,14 @@ public class Breakout extends GraphicsProgram {
 	private static final int NTURNS = 3;
 
 /** Runs the Breakout program. */
-//	public void run() {
+	public void run() {
+		GRect rect = new GRect(10,10,100,100);
+		add(rect);
 	//	addPaddle();
-		//addMouseListeners();
+		addMouseListeners();
 		//boardSetup();	//sets up the board
 
-	//}
+	}
 	
 	public void MousePressed(MouseEvent e){
 		last = new GPoint(e.getPoint());
@@ -80,20 +82,20 @@ public class Breakout extends GraphicsProgram {
 	 * the number of rows and the brick separation
 	 */
 	
-	//private void boardSetup(){
+	private void boardSetup(){
 		
 		//initialise top of the board
-		//int yCoord = BRICK_Y_OFFSET;
+		int yCoord = BRICK_Y_OFFSET;
 		//add bricks
-		//for(int i = 0; i < NBRICK_ROWS; i++){
-			//Color color = setColor(i);
-			//createRow(color, yCoord);
-			//yCoord += BRICK_HEIGHT + BRICK_SEP;
-		//}
-		//addPaddle();
-		//addMouseListeners();
+		for(int i = 0; i < NBRICK_ROWS; i++){
+			Color color = setColor(i);
+			createRow(color, yCoord);
+			yCoord += BRICK_HEIGHT + BRICK_SEP;
+		}
+		addPaddle();
+		addMouseListeners();
 		
-	//}
+	}
 	
 
 	/*
@@ -137,8 +139,7 @@ public class Breakout extends GraphicsProgram {
 	/*
 	 * Adds paddle to the game board at the start
 	 */
-	/*addPaddle()*/
-	public void init(){
+	private void addPaddle(){
 		int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
 		int yPaddle = HEIGHT - PADDLE_Y_OFFSET;
 		GRect paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
