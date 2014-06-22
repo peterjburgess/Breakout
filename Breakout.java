@@ -146,6 +146,7 @@ public class Breakout extends GraphicsProgram {
 		paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
+		getMouseListeners();
 	}
 	
 	//private instance variables
