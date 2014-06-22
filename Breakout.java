@@ -66,14 +66,8 @@ public class Breakout extends GraphicsProgram {
 
 	//tracks the center of the paddle with the mouse position
 	public void mouseMoved(MouseEvent e){
-		if(e.getX() >= PADDLE_WIDTH/2 && e.getX() <= getWidth() - PADDLE_WIDTH/2){
+		if(e.getX() >= PADDLE_WIDTH/2 && e.getX() <= APPLICATION_WIDTH - PADDLE_WIDTH/2){
 			paddle.setLocation(e.getX() - PADDLE_WIDTH / 2, yPaddle);
-		}
-		else if(e.getX() < PADDLE_WIDTH/2){
-			paddle.setLocation(0, yPaddle);
-		}
-		else {
-			paddle.setLocation(getWidth() - PADDLE_WIDTH, yPaddle);
 		}
 	}
 	
