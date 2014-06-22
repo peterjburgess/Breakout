@@ -74,7 +74,7 @@ public class Breakout extends GraphicsProgram {
 	
 	private void moveBall(){
 		while(!gameOver){
-			ball.move(0,vy);
+			ball.move(vx,vy);
 			pause(DELAY);
 			checkForCollision();
 		}
@@ -136,6 +136,8 @@ public class Breakout extends GraphicsProgram {
 		ball = new GOval(xCoord, yCoord, BALL_RADIUS*2, BALL_RADIUS*2);
 		ball.setFilled(true);
 		add(ball);
+		
+		//set inital velocity of the ball
 		vy = 3.0;//initial y velocity
 		vx = rgen.nextDouble(1.0, 3.0);
 		if (rgen.nextBoolean()){
