@@ -77,8 +77,8 @@ public class Breakout extends GraphicsProgram {
 	*/
 	
 	public void mouseMoved(MouseEvent e){
-		last = new GPoint(e.getPoint());
-		paddle.move(e.getX() - last.getX(), yPaddle);
+		//last = new GPoint(e.getPoint());
+		paddle.setLocation(e.getX(), yPaddle);
 	}
 	/*
 	 * sets up the board at the start of the game based on the number of bricks per row, 
