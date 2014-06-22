@@ -69,8 +69,8 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	public void mouseDragged(MouseEvent e){
-		if(gobj != null){
-			gobj.move(e.getX() - last.getX(), e.getY() - last.getY());
+		if(grect != null){
+			grect.move(e.getX() - last.getX(), e.getY() - last.getY());
 			last = new GPoint(e.getPoint());	
 		}
 	}
@@ -146,7 +146,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	//private instance variables
-	private GObject gobj;
+	private GRect grect;
 	private GPoint last; //gives me the last xCoord of the paddle
 
 }
