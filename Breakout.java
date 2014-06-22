@@ -80,9 +80,13 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	/*
+	 * Checks for collisions with walls and objects. If there is a collision, reverses direction
+	 */
+	
 	private void checkForCollision(){
 		//check for collision with walls
-		if(ball.getY() <= BALL_RADIUS || ball.getY() >= APPLICATION_HEIGHT - BALL_RADIUS){
+		if(ball.getY() <= 0 || ball.getY() >= APPLICATION_HEIGHT - 2 * BALL_RADIUS){
 			vy = -vy;
 		}
 	}
