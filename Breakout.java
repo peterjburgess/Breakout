@@ -57,7 +57,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int NTURNS = 3;
 	
 /** delay between moves */
-	private static final int DELAY = 20;
+	private static final int DELAY = 10;
 
 /** Runs the Breakout program. */
 	
@@ -110,7 +110,10 @@ public class Breakout extends GraphicsProgram {
 	
 	private GObject getCollidingObject(){
 		GObject collider = getElementAt(ball.getX(), ball.getY());
-		return collider;
+		if (collider != null){
+			return collider;
+		}
+		else return null;
 	}
 
 	//tracks the center of the paddle with the mouse position
