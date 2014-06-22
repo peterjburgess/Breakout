@@ -9,7 +9,7 @@ public class DragObject extends GraphicsProgram {
 /* Initializes the program */
    public void init() {
       GRect rect = new GRect(100, 100, 150, 100);
-      GOval oval = new GOval(300, 115, 100, 70);
+      add(rect);
       addMouseListeners();
    }
 
