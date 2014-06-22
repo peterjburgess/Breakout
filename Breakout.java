@@ -139,11 +139,15 @@ public class Breakout extends GraphicsProgram {
 	 */
 	/*addPaddle()*/
 	public void run(){
-		int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
+		/*int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
 		int yPaddle = HEIGHT - PADDLE_Y_OFFSET;
 		GRect paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
-		add(paddle);
+		add(paddle);*/
+		 GRect rect = new GRect(100, 100, 150, 100);
+	      rect.setFilled(true);
+	      rect.setColor(Color.RED);
+	      add(rect);
 		addMouseListeners();
 	}
 	
