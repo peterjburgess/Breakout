@@ -63,7 +63,7 @@ public class Breakout extends GraphicsProgram {
 
 	}
 	
-	public void mousePressed(MouseEvent e){
+	/*public void mousePressed(MouseEvent e){
 		last = new GPoint(e.getPoint());
 		gobj = getElementAt(last);
 	}
@@ -73,6 +73,12 @@ public class Breakout extends GraphicsProgram {
 			gobj.move(e.getX() - last.getX(), e.getY() - last.getY());
 			last = new GPoint(e.getPoint());	
 		}
+	}
+	*/
+	
+	public void mouseMove(MouseEvent e){
+		last = new GPoint(e.getPoint());
+		paddle.move(e.getX() - last.getX(), yPaddle);
 	}
 	/*
 	 * sets up the board at the start of the game based on the number of bricks per row, 
@@ -138,7 +144,7 @@ public class Breakout extends GraphicsProgram {
 	 */
 	private void addPaddle(){
 		int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
-		int yPaddle = HEIGHT - PADDLE_Y_OFFSET;
+		yPaddle = HEIGHT - PADDLE_Y_OFFSET;
 		paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
@@ -149,4 +155,5 @@ public class Breakout extends GraphicsProgram {
 	private GObject gobj;
 	private GPoint last; //gives me the last xCoord of the paddle
 	private GRect paddle; //gives me the paddle
+	private int yPaddle; //gives y coord of paddle
 }
