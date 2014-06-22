@@ -81,13 +81,16 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	/*
-	 * Checks for collisions with walls and objects. If there is a collision, reverses direction
+	 * Checks for collisions with walls and objects. If there is a collision, reverses ball velocity
 	 */
 	
 	private void checkForCollision(){
 		//check for collision with walls
 		if(ball.getY() <= 0 || ball.getY() >= APPLICATION_HEIGHT - 2 * BALL_RADIUS){
 			vy = -vy;
+		}
+		if(ball.getX() <= 0 || ball.getX() >= APPLICATION_WIDTH - 2 * BALL_RADIUS){
+			vx = -vx;
 		}
 	}
 
@@ -134,6 +137,10 @@ public class Breakout extends GraphicsProgram {
 		ball.setFilled(true);
 		add(ball);
 		vy = 3.0;//initial y velocity
+		vx = rgen.nextDouble(1.0, 3.0);
+		if (rgen.nextBoolean()){
+			vx = -vx;
+		}
 	}
 	
 
@@ -192,4 +199,5 @@ public class Breakout extends GraphicsProgram {
 	private int yPaddle; //gives y coord of paddle
 	private double vx, vy; //x and y components of ball's velocity
 	private boolean gameOver;
+	private RandomGenerator rgen = RandomGenerator.getInstance();
 }
