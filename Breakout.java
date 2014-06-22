@@ -105,6 +105,7 @@ public class Breakout extends GraphicsProgram {
 		int xCoord = APPLICATION_WIDTH/2 - BALL_RADIUS;
 		int yCoord = APPLICATION_HEIGHT/2 - BALL_RADIUS;
 		GOval ball = new GOval(xCoord, yCoord, BALL_RADIUS*2, BALL_RADIUS*2);
+		ball.setFilled(true);
 		add(ball);
 	}
 	
