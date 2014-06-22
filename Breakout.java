@@ -118,6 +118,7 @@ public class Breakout extends GraphicsProgram {
 		}
 		addPaddle();
 		addBall();
+		gameOver = false;
 	}
 	
 	//Adds the ball to the canvas
@@ -186,4 +187,5 @@ public class Breakout extends GraphicsProgram {
 	private GOval ball; // gives me the ball
 	private int yPaddle; //gives y coord of paddle
 	private double vx, vy; //x and y components of ball's velocity
+	private boolean gameOver;
 }
