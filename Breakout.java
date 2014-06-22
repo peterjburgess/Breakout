@@ -92,6 +92,9 @@ public class Breakout extends GraphicsProgram {
 		if(ball.getX() <= 0 || ball.getX() >= APPLICATION_WIDTH - 2 * BALL_RADIUS){
 			vx = -vx;
 		}
+		
+		//now check for collision with bricks
+		
 	}
 
 	//tracks the center of the paddle with the mouse position
