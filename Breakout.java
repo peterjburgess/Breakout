@@ -80,11 +80,13 @@ public class Breakout extends GraphicsProgram {
 			ball.move(vx,vy);
 			pause(DELAY);
 			checkForCollision();
+		
 		}
 	}
 	
+	
 	/*
-	 * Checks for collisions with walls and objects. If there is a collision, reverses ball velocity
+	 * Checks for collisions with walls. If there is a collision, reverses ball velocity
 	 */
 	
 	private void checkForCollision(){
@@ -95,9 +97,20 @@ public class Breakout extends GraphicsProgram {
 		if(ball.getX() <= 0 || ball.getX() >= APPLICATION_WIDTH - 2 * BALL_RADIUS){
 			vx = -vx;
 		}
+		//check for collision with objects
+		GObject collider = getCollidingObject();
+		if(collider != null){
+			vy = - vy;
+			if (collider != paddle){
+				remove(collider);
+			}
+		}
 		
-		//now check for collision with bricks
-		
+	}
+	
+	private GObject getCollidingObject(){
+		GObject collider = getElementAt(ball.getX(), ball.getY());
+		return collider;
 	}
 
 	//tracks the center of the paddle with the mouse position
