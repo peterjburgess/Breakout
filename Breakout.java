@@ -60,12 +60,16 @@ public class Breakout extends GraphicsProgram {
 	private static final int DELAY = 20;
 
 /** Runs the Breakout program. */
-	public void run() {
+	
+	//public static void main(String[] args){
+	public static void main(String[] args) {
 	
 		boardSetup();	//sets up the board
 		play();
 
 	}
+	
+	
 	
 	private void play(){
 		addMouseListeners();
