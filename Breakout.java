@@ -58,9 +58,7 @@ public class Breakout extends GraphicsProgram {
 
 /** Runs the Breakout program. */
 	public void run() {
-		GRect rect = new GRect(10,10,100,100);
-		add(rect);
-	//	addPaddle();
+		addPaddle();
 		addMouseListeners();
 		//boardSetup();	//sets up the board
 
