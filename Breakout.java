@@ -59,8 +59,21 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	public void run() {
 		boardSetup();	//sets up the board
+		addMouseListeners();
 	}
 	
+	public void MousePressed(MouseEvent e){
+		last = new GPoint(e.getPoint());
+		gObj = getElementAt(last);
+	}
+	
+	public void mouseDragged(MouseEvent e){
+		if(gObj != null){
+			gObj.move(e.getX() - last.getX(), e.getY() - last.getY());
+			last = new GPoint(e.getPoint());
+			
+		}
+	}
 	/*
 	 * sets up the board at the start of the game based on the number of bricks per row, 
 	 * the number of rows and the brick separation
