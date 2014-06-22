@@ -55,25 +55,28 @@ public class Breakout extends GraphicsProgram {
 
 /** Number of turns */
 	private static final int NTURNS = 3;
+	
+/** delay between moves */
+	private static final int DELAY = 10;
 
 /** Runs the Breakout program. */
 	public void run() {
 	
 		boardSetup();	//sets up the board
 		play();
-		addMouseListeners();
 
 	}
 	
 	private void play(){
+		addMouseListeners();
 		moveBall();
 	}
 	
 	private void moveBall(){
 		while(ball.getY() < APPLICATION_HEIGHT){
 			ball.move(0,vy);
-			pause(100);
-			addMouseListeners();
+			pause(DELAY);
+			//addMouseListeners();
 		}
 	}
 	
