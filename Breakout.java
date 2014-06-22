@@ -64,11 +64,22 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 
-	
+	//tracks the center of the paddle with the mouse position
 	public void mouseMoved(MouseEvent e){
-		//last = new GPoint(e.getPoint());
-		paddle.setLocation(e.getX() - PADDLE_WIDTH / 2, yPaddle);
+		if(paddleInBounds()){
+			paddle.setLocation(e.getX() - PADDLE_WIDTH / 2, yPaddle);
+	
+		}
 	}
+	
+	//checks that the paddle doesn't go off the edge of the screen
+	private boolean paddleInBounds(){
+		if(paddle.getX() == 0 || paddle.getX() + PADDLE_WIDTH == getWidth()){
+			return false;	
+		}
+		else return true;
+	}
+	
 	/*
 	 * sets up the board at the start of the game based on the number of bricks per row, 
 	 * the number of rows and the brick separation
@@ -85,8 +96,6 @@ public class Breakout extends GraphicsProgram {
 			yCoord += BRICK_HEIGHT + BRICK_SEP;
 		}
 		addPaddle();
-		addMouseListeners();
-		
 	}
 	
 
@@ -141,8 +150,6 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	//private instance variables
-	private GObject gobj;
-	private GPoint last; //gives me the last xCoord of the paddle
 	private GRect paddle; //gives me the paddle
 	private int yPaddle; //gives y coord of paddle
 }
