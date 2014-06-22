@@ -76,10 +76,16 @@ public class Breakout extends GraphicsProgram {
 		while(ball.getY() < APPLICATION_HEIGHT - 2 * BALL_RADIUS){
 			ball.move(0,vy);
 			pause(DELAY);
-			//addMouseListeners();
+			checkForCollision();
 		}
 	}
 	
+	private void checkForCollision(){
+		//check for collision with walls
+		if(ball.getY() <= BALL_RADIUS || ball.getY() >= APPLICATION_HEIGHT - BALL_RADIUS){
+			vy = -vy;
+		}
+	}
 
 	//tracks the center of the paddle with the mouse position
 	public void mouseMoved(MouseEvent e){
