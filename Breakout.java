@@ -96,6 +96,16 @@ public class Breakout extends GraphicsProgram {
 			yCoord += BRICK_HEIGHT + BRICK_SEP;
 		}
 		addPaddle();
+		addBall();
+	}
+	
+	//Adds the ball to the canvas
+	private void addBall(){
+		//find xCoord and yCoord to put ball in screen center and add to canvas
+		int xCoord = APPLICATION_WIDTH/2 - BALL_RADIUS;
+		int yCoord = APPLICATION_HEIGHT/2 - BALL_RADIUS;
+		GOval ball = new GOval(xCoord, yCoord, BALL_RADIUS*2, BALL_RADIUS*2);
+		add(ball);
 	}
 	
 
@@ -146,7 +156,6 @@ public class Breakout extends GraphicsProgram {
 		paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
-		//addMouseListeners();
 	}
 	
 	//private instance variables
