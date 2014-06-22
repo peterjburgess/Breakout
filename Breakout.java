@@ -57,9 +57,9 @@ public class Breakout extends GraphicsProgram {
 	private static final int NTURNS = 3;
 
 /** Runs the Breakout program. */
-	public void run() {
-		addPaddle();
-		addMouseListeners();
+//	public void run() {
+	//	addPaddle();
+		//addMouseListeners();
 		//boardSetup();	//sets up the board
 
 	}
@@ -137,7 +137,8 @@ public class Breakout extends GraphicsProgram {
 	/*
 	 * Adds paddle to the game board at the start
 	 */
-	private void addPaddle(){
+	/*addPaddle()*/
+	public void run(){
 		int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
 		int yPaddle = HEIGHT - PADDLE_Y_OFFSET;
 		GRect paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
