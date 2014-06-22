@@ -110,10 +110,25 @@ public class Breakout extends GraphicsProgram {
 	
 	private GObject getCollidingObject(){
 		GObject collider = getElementAt(ball.getX(), ball.getY());
-		if (collider != null){
-			return collider;
+		for(int i = 0; i < 4; i++){
+			if (i == 1){
+				collider = getElementAt(ball.getX() + 2 * BALL_RADIUS, ball.getY());
+			}
+			if (i == 2){
+				collider = getElementAt(ball.getX(), ball.getY() + 2 * BALL_RADIUS);
+			}
+			if (i == 3){
+				collider = getElementAt(ball.getX() + 2 * BALL_RADIUS, ball.getY() + 2 * BALL_RADIUS);
+			}
+			
+			if (collider != null){
+				return collider;
 		}
-		else return null;
+		
+		}
+		collider = getElementAt(ball.getX() + 2 * BALL_RADIUS, ball.getY());
+		
+		return null;
 	}
 
 	//tracks the center of the paddle with the mouse position
