@@ -69,7 +69,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	public void mouseDragged(MouseEvent e){
-		if (gobj != null){
+		if (gobj == paddle){
 			gobj.move(e.getX() - last.getX(), e.getY() - last.getY());
 			last = new GPoint(e.getPoint());	
 		}
@@ -139,7 +139,7 @@ public class Breakout extends GraphicsProgram {
 	private void addPaddle(){
 		int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
 		int yPaddle = HEIGHT - PADDLE_Y_OFFSET;
-		GRect paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
+		paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
 		addMouseListeners();
@@ -148,5 +148,5 @@ public class Breakout extends GraphicsProgram {
 	//private instance variables
 	private GObject gobj;
 	private GPoint last; //gives me the last xCoord of the paddle
-
+	private GRect paddle; //gives me the paddle
 }
