@@ -63,22 +63,11 @@ public class Breakout extends GraphicsProgram {
 
 	}
 	
-	/*public void mousePressed(MouseEvent e){
-		last = new GPoint(e.getPoint());
-		gobj = getElementAt(last);
-	}
-	
-	public void mouseDragged(MouseEvent e){
-		if (gobj == paddle){
-			gobj.move(e.getX() - last.getX(), e.getY() - last.getY());
-			last = new GPoint(e.getPoint());	
-		}
-	}
-	*/
+
 	
 	public void mouseMoved(MouseEvent e){
 		//last = new GPoint(e.getPoint());
-		paddle.setLocation(e.getX(), yPaddle);
+		paddle.setLocation(e.getX() - PADDLE_WIDTH / 2, yPaddle);
 	}
 	/*
 	 * sets up the board at the start of the game based on the number of bricks per row, 
