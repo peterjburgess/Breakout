@@ -79,6 +79,8 @@ public class Breakout extends GraphicsProgram {
 		addPaddle();
 		//assign paddle to x location of mouse
 		addMouseListeners();
+		gObj = getElementAt(last);
+		
 		
 	}
 	
@@ -87,7 +89,7 @@ public class Breakout extends GraphicsProgram {
 	 */
 	
 	public void mouseMoved(MouseEvent e){
-		paddle.move(e.getX() - last.getX(), yPaddle);
+		gObj.move(e.getX() - last.getX(), yPaddle);
 	}
 	
 	/*
@@ -140,6 +142,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	//private instance variables
+	private GObject gObj;
 	private GRect paddle; //initialises paddle as a GRect
 	private GPoint last; //gives me the last xCoord of the paddle
 	private int yPaddle; //sets the y location of the paddle
