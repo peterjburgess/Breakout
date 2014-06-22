@@ -77,22 +77,10 @@ public class Breakout extends GraphicsProgram {
 			yCoord += BRICK_HEIGHT + BRICK_SEP;
 		}
 		addPaddle();
-		//assign paddle to x location of mouse
-		addMouseListeners();
-		gObj = getElementAt(last);
-		
 		
 	}
 	
-	/*
-	 * This moves the paddle when the mouse is moved
-	 */
-	
-	public void mouseMoved(MouseEvent e){
-		gObj.move(e.getX() - last.getX(), yPaddle);
-		last = new GPoint(e.getPoint());
-	}
-	
+
 	/*
 	 * This creates the rows of bricks one at a time centred in the graphics window
 	 */
@@ -137,7 +125,7 @@ public class Breakout extends GraphicsProgram {
 	private void addPaddle(){
 		int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
 		yPaddle = HEIGHT - PADDLE_Y_OFFSET;
-		paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
+		GRect paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
 	}
