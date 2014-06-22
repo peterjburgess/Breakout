@@ -62,7 +62,7 @@ public class Breakout extends GraphicsProgram {
 		//addMouseListeners();
 		//boardSetup();	//sets up the board
 
-	}
+	//}
 	
 	public void MousePressed(MouseEvent e){
 		last = new GPoint(e.getPoint());
