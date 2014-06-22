@@ -60,6 +60,8 @@ public class Breakout extends GraphicsProgram {
 	public void run() {
 	
 		boardSetup();	//sets up the board
+		play();
+		getMouseListeners();
 
 	}
 	
@@ -144,7 +146,6 @@ public class Breakout extends GraphicsProgram {
 		paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
-		addMouseListeners();
 	}
 	
 	//private instance variables
