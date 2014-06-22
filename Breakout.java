@@ -61,8 +61,7 @@ public class Breakout extends GraphicsProgram {
 
 /** Runs the Breakout program. */
 	
-	//public static void main(String[] args){
-	public static void main(String[] args) {
+	public void run() {
 	
 		boardSetup();	//sets up the board
 		play();
