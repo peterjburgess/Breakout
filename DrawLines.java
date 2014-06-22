@@ -6,26 +6,69 @@ import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class DrawLines extends GraphicsProgram {
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import java.awt.event.*;
 
-/* Initializes the program by enabling the mouse listeners */
+/** This class displays a mouse-draggable rectangle and oval */
+public class DragObjects extends GraphicsProgram {
+
+/* Initializes the program */
    public void init() {
+      GRect rect = new GRect(100, 100, 150, 100);
+      rect.setFilled(true);
+      rect.setColor(Color.RED);
+      add(rect);
+      GOval oval = new GOval(300, 115, 100, 70);
+      oval.setFilled(true);
+      oval.setColor(Color.GREEN);
+      add(oval);
       addMouseListeners();
    }
+   import acm.graphics.*;
+   import acm.program.*;
+   import java.awt.*;
+   import java.awt.event.*;
 
-/* Called on mouse press to create a new line */
-   public void mousePressed(MouseEvent e) {
-      line = new GLine(e.getX(), e.getY(), e.getX(), e.getY());
-      add(line);
+   /** This class displays a mouse-draggable rectangle and oval */
+   public class DrawLines extends GraphicsProgram {
+
+   /* Initializes the program */
+      public void init() {
+         GRect rect = new GRect(100, 100, 150, 100);
+         rect.setFilled(true);
+         rect.setColor(Color.RED);
+         add(rect);
+         GOval oval = new GOval(300, 115, 100, 70);
+         oval.setFilled(true);
+         oval.setColor(Color.GREEN);
+         add(oval);
+         addMouseListeners();
+      }
+      
+      /* Called on mouse press to record the coordinates of the click */
+      public void mousePressed(MouseEvent e) {
+         last = new GPoint(e.getPoint());
+         gobj = getElementAt(last);
+      }
+
+   /* Called on mouse drag to reposition the object */
+      public void mouseDragged(MouseEvent e) {
+         if (gobj != null) {
+            gobj.move(e.getX() - last.getX(), e.getY() - last.getY());
+            last = new GPoint(e.getPoint());
+         }
+      }
+
+   /* Called on mouse click to move this object to the front */
+      public void mouseClicked(MouseEvent e) {
+         if (gobj != null) gobj.sendToFront();
+      }
+
+   /* Private instance variables */
+      private GObject gobj;           /* The object being dragged */
+      private GPoint last;            /* The last mouse position  */
+
    }
-
-/* Called on mouse drag to extend the endpoint */
-   public void mouseDragged(MouseEvent e) {
-      line.setEndPoint(e.getX(), e.getY());
-   }
-
-/* Private instance variables */
-   private GLine line;
-}
-
 
