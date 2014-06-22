@@ -66,20 +66,12 @@ public class Breakout extends GraphicsProgram {
 
 	//tracks the center of the paddle with the mouse position
 	public void mouseMoved(MouseEvent e){
-		if(paddleInBounds()){
+		if(e.getX() >= PADDLE_WIDTH/2 && e.getX() <= getWidth() - PADDLE_WIDTH/2){
 			paddle.setLocation(e.getX() - PADDLE_WIDTH / 2, yPaddle);
-	
 		}
 	}
 	
-	//checks that the paddle doesn't go off the edge of the screen
-	private boolean paddleInBounds(){
-		if(paddle.getX() == 0 || paddle.getX() + PADDLE_WIDTH == getWidth()){
-			return false;	
-		}
-		else return true;
-	}
-	
+
 	/*
 	 * sets up the board at the start of the game based on the number of bricks per row, 
 	 * the number of rows and the brick separation
