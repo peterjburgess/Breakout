@@ -91,11 +91,15 @@ public class Breakout extends GraphicsProgram {
 	
 	private void checkForCollision(){
 		//check for collision with walls
-		if(ball.getY() <= 0 || ball.getY() >= APPLICATION_HEIGHT - 2 * BALL_RADIUS){
+		if(ball.getY() <= 0){
 			vy = -vy;
 		}
 		if(ball.getX() <= 0 || ball.getX() >= APPLICATION_WIDTH - 2 * BALL_RADIUS){
 			vx = -vx;
+		}
+		if(ball.getY() >= APPLICATION_HEIGHT - 2 * BALL_RADIUS)
+		{
+			gameOver = true;
 		}
 		//check for collision with objects
 		GObject collider = getCollidingObject();
