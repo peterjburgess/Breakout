@@ -59,7 +59,6 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	public void run() {
 		addPaddle();
-		addMouseListeners();
 		//boardSetup();	//sets up the board
 
 	}
@@ -70,10 +69,10 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	public void mouseDragged(MouseEvent e){
-		//if(gObj != null){
+		if(gObj != null){
 			gObj.move(e.getX() - last.getX(), e.getY() - last.getY());
 			last = new GPoint(e.getPoint());	
-		//}
+		}
 	}
 	/*
 	 * sets up the board at the start of the game based on the number of bricks per row, 
@@ -143,6 +142,7 @@ public class Breakout extends GraphicsProgram {
 		GRect paddle = new GRect (xCoord, yPaddle, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
+		addMouseListeners();
 	}
 	
 	//private instance variables
