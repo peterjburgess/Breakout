@@ -73,6 +73,7 @@ public class Breakout extends GraphicsProgram {
 		while(ball.getY() < APPLICATION_HEIGHT){
 			ball.move(0,vy);
 			pause(100);
+			addMouseListeners();
 		}
 	}
 	
