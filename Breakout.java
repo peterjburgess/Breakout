@@ -60,7 +60,7 @@ public class Breakout extends GraphicsProgram {
 	public void run() {
 	
 		boardSetup();	//sets up the board
-		play();
+		//play();
 		getMouseListeners();
 
 	}
