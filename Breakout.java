@@ -60,9 +60,17 @@ public class Breakout extends GraphicsProgram {
 	public void run() {
 	
 		boardSetup();	//sets up the board
-		//play();
+		play();
 		addMouseListeners();
 
+	}
+	
+	private void play(){
+		moveBall();
+	}
+	
+	private void moveBall(){
+		ball.move(0,vy);
 	}
 	
 
@@ -104,9 +112,10 @@ public class Breakout extends GraphicsProgram {
 		//find xCoord and yCoord to put ball in screen center and add to canvas
 		int xCoord = APPLICATION_WIDTH/2 - BALL_RADIUS;
 		int yCoord = APPLICATION_HEIGHT/2 - BALL_RADIUS;
-		GOval ball = new GOval(xCoord, yCoord, BALL_RADIUS*2, BALL_RADIUS*2);
+		ball = new GOval(xCoord, yCoord, BALL_RADIUS*2, BALL_RADIUS*2);
 		ball.setFilled(true);
 		add(ball);
+		vy = 3.0;//initial y velocity
 	}
 	
 
@@ -161,5 +170,7 @@ public class Breakout extends GraphicsProgram {
 	
 	//private instance variables
 	private GRect paddle; //gives me the paddle
+	private GOval ball; // gives me the ball
 	private int yPaddle; //gives y coord of paddle
+	private double vx, vy; //x and y components of ball's velocity
 }
