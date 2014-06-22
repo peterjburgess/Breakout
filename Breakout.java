@@ -58,7 +58,8 @@ public class Breakout extends GraphicsProgram {
 
 /** Runs the Breakout program. */
 	public void run() {
-		boardSetup();	//sets up the board
+		addPaddle();
+		//boardSetup();	//sets up the board
 
 	}
 	
@@ -79,20 +80,20 @@ public class Breakout extends GraphicsProgram {
 	 * the number of rows and the brick separation
 	 */
 	
-	private void boardSetup(){
+	//private void boardSetup(){
 		
 		//initialise top of the board
-		int yCoord = BRICK_Y_OFFSET;
+		//int yCoord = BRICK_Y_OFFSET;
 		//add bricks
-		for(int i = 0; i < NBRICK_ROWS; i++){
-			Color color = setColor(i);
-			createRow(color, yCoord);
-			yCoord += BRICK_HEIGHT + BRICK_SEP;
-		}
-		addPaddle();
-		addMouseListeners();
+		//for(int i = 0; i < NBRICK_ROWS; i++){
+			//Color color = setColor(i);
+			//createRow(color, yCoord);
+			//yCoord += BRICK_HEIGHT + BRICK_SEP;
+		//}
+		//addPaddle();
+		//addMouseListeners();
 		
-	}
+	//}
 	
 
 	/*
