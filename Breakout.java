@@ -108,6 +108,7 @@ public class Breakout extends GraphicsProgram {
 				gameOver = true;
 			}
 			else{
+				remove(ball);
 				addBall();
 			}
 		}
