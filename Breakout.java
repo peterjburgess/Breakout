@@ -63,8 +63,8 @@ public class Breakout extends GraphicsProgram {
 	
 	public void run() {
 		
-		addMouseListeners();
 		boardSetup();	//sets up the board
+		addMouseListeners();
 		//play();
 
 	}
@@ -149,6 +149,7 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	//starts the game upon click of the mouse
 	public void mouseClicked(MouseEvent e){
 		if (!gameStart) {
 			remove(startLabel);
