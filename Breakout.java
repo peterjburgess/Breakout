@@ -231,13 +231,15 @@ public class Breakout extends GraphicsProgram {
 	//Adds the lives label and puts it in the bottom left, updates when life is lost
 	private void updateLivesLabel(){
 		livesLabel = new GLabel("Lives: " + lives, 0, getHeight());
+		livesLabel.setFont("Serif-18");
 		add(livesLabel);
 	}
 	
 	//Updates score label with  new score when required
 	private void updateScoreLabel(){
 		scoreLabel = new GLabel("Score: " + score, 0, 0);
-		scoreLabel.setFont("Serif-24");
+		scoreLabel.move(0, scoreLabel.getAscent());
+		scoreLabel.setFont("Serif-18");
 		add(scoreLabel);
 	}
 	
