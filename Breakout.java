@@ -136,19 +136,21 @@ public class Breakout extends GraphicsProgram {
 	 */
 	
 	private void updateScore(GObject collider){
-		if (collider.getColor() == Color.CYAN){
+		
+		Color color = collider.getColor();
+		if (color.equals(Color.CYAN)){
 			score += 100 * combo;
 		}
-		else if (collider.getColor() == Color.GREEN){
+		else if (color.equals(Color.GREEN)){
 			score += 200 * combo;
 		}
-		else if (collider.getColor() == Color.YELLOW){
+		else if (color.equals(Color.YELLOW)){
 			score += 500 * combo;
 		}
-		else if (collider.getColor() == Color.ORANGE){
+		else if (color.equals(Color.ORANGE)){
 			score += 1000 * combo;
 		}
-		else if (collider.getColor() == Color.RED){
+		else if (color.equals(Color.RED)){
 			score += 5000 * combo;
 		}
 		remove(scoreLabel);
