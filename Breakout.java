@@ -65,9 +65,15 @@ public class Breakout extends GraphicsProgram {
 		
 		addMouseListeners();
 		boardSetup();	//sets up the board
+		play();
 
 	}
 	
+	
+	
+	private void play(){
+		moveBall();
+	}
 	
 	private void moveBall(){
 		while(!gameOver){
@@ -144,7 +150,7 @@ public class Breakout extends GraphicsProgram {
 	
 	public void mouseClicked(MouseEvent e){
 		remove(startLabel);
-		moveBall();
+		play();
 	}
 	
 
