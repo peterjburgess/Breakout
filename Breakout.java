@@ -237,6 +237,7 @@ public class Breakout extends GraphicsProgram {
 	//Updates score label with  new score when required
 	private void updateScoreLabel(){
 		scoreLabel = new GLabel("Score: " + score, 0, 0);
+		scoreLabel.setFont("Serif-18");
 		add(scoreLabel);
 	}
 	
