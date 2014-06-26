@@ -65,15 +65,9 @@ public class Breakout extends GraphicsProgram {
 		
 		addMouseListeners();
 		boardSetup();	//sets up the board
-		play();
 
 	}
 	
-	
-	
-	private void play(){
-		moveBall();
-	}
 	
 	private void moveBall(){
 		while(!gameOver){
@@ -135,7 +129,7 @@ public class Breakout extends GraphicsProgram {
 		return null;
 	}
 
-	//tracks the center of the paddle with the mouse position
+	//tracks the centre of the paddle with the mouse position
 	public void mouseMoved(MouseEvent e){
 		if(e.getX() >= PADDLE_WIDTH/2 && e.getX() <= APPLICATION_WIDTH - PADDLE_WIDTH/2){
 			paddle.setLocation(e.getX() - PADDLE_WIDTH / 2, yPaddle);
@@ -146,6 +140,11 @@ public class Breakout extends GraphicsProgram {
 		else {
 			paddle.setLocation(APPLICATION_WIDTH - PADDLE_WIDTH, yPaddle);
 		}
+	}
+	
+	public void mouseClicked(MouseEvent e){
+		remove(startLabel);
+		moveBall();
 	}
 	
 
