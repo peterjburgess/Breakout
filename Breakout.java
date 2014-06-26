@@ -77,10 +77,14 @@ public class Breakout extends GraphicsProgram {
 		waitForClick();
 		remove(startLabel);
 		while(!gameOver){
-			ball.move(vx,vy);
-			pause(DELAY);
-			checkForCollision();
-		
+			if(brickCounter > 0){
+				ball.move(vx,vy);
+				pause(DELAY);
+				checkForCollision();
+			}
+			else{
+				declareWinner();
+			}
 		}
 	}
 	
@@ -207,6 +211,7 @@ public class Breakout extends GraphicsProgram {
 		//initialise top of the board
 		int yCoord = BRICK_Y_OFFSET;
 		//add bricks
+		brickCounter = 0; //initialises brick counter
 		for(int i = 0; i < NBRICK_ROWS; i++){
 			Color color = setColor(i);
 			createRow(color, yCoord);
@@ -216,17 +221,27 @@ public class Breakout extends GraphicsProgram {
 		addBall();
 		addStartLabel();
 		gameOver = false;
-		gameStart = false;
 	}
 	
-	//Adds the start label to the canvas and centers
+	//Adds the start label to the canvas and centres
 	private void addStartLabel(){
 		startLabel = new GLabel("Click to Start", 0, 0);
 		startLabel.setFont(new Font("Serif", Font.PLAIN, 26));
-		int xLabel = (int)(getWidth() - startLabel.getWidth()) / 2; //find screen center in x direction
-		int yLabel = (int)(getHeight() - startLabel.getAscent()) /2 ;//find screen center in y direction
+		int xLabel = (int)(getWidth() - startLabel.getWidth()) / 2; //find screen centre in x direction
+		int yLabel = (int)(getHeight() - startLabel.getAscent()) /2 ;//find screen centre in y direction
 		startLabel.move(xLabel, yLabel);
 		add(startLabel);
+	}
+	
+	private void declareWinner(){
+		GLabel winnerLabel = new GLabel("Congratulations, you won!", 0, 0);
+		winnerLabel.setFont(new Font("Serif", Font.PLAIN, 26));
+		int xLabel = (int)(getWidth() - winnerLabel.getWidth()) / 2; //find screen centre in x direction
+		int yLabel = (int)(getHeight() - winnerLabel.getAscent()) /2 ;//find screen centre in y direction
+		winnerLabel.move(xLabel, yLabel);
+		add(winnerLabel);
+		remove(ball);
+		remove(paddle);
 	}
 	
 	//Adds the ball to the canvas
@@ -262,6 +277,7 @@ public class Breakout extends GraphicsProgram {
 			rect.setFillColor(color);
 			add(rect);
 			xCoord += BRICK_WIDTH + BRICK_SEP;
+			brickCounter ++;
 		}
 	}
 	
@@ -304,5 +320,5 @@ public class Breakout extends GraphicsProgram {
 	private boolean gameOver;
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private GLabel startLabel; //Gives me the label at the start of the game
-	private boolean gameStart;
+	int brickCounter; //Keeps track of the number of bricks on the screen.
 }
