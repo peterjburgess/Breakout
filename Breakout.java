@@ -103,7 +103,13 @@ public class Breakout extends GraphicsProgram {
 		}
 		if(ball.getY() >= APPLICATION_HEIGHT - 2 * BALL_RADIUS)
 		{
-			gameOver = true;
+			lives --;
+			if (lives == 0){
+				gameOver = true;
+			}
+			else{
+				addBall();
+			}
 		}
 		//check for collision with objects
 		GObject collider = getCollidingObject();
@@ -122,8 +128,9 @@ public class Breakout extends GraphicsProgram {
 	
 	/*
 	 * method changes the horizontal velocity of the ball depending on where in the paddle the ball hits. The paddle is split
-	 * into 5 sections, the middle section won't change vx, the next two either side will give vx some component in that direction
-	 * and the far ends will give it maximum velocity in that direction
+	 * into 5 sections, the middle section won't change vx, the next two either side will give vx 
+	 * some component in that direction and the far ends will give it maximum velocity in that 
+	 * direction
 	 */
 	private void getNewvx(){
 		
