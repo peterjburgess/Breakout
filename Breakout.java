@@ -62,7 +62,8 @@ public class Breakout extends GraphicsProgram {
 /** Runs the Breakout program. */
 	
 	public void run() {
-	
+		
+		addMouseListeners();
 		boardSetup();	//sets up the board
 		play();
 
@@ -71,7 +72,6 @@ public class Breakout extends GraphicsProgram {
 	
 	
 	private void play(){
-		addMouseListeners();
 		moveBall();
 	}
 	
@@ -166,7 +166,18 @@ public class Breakout extends GraphicsProgram {
 		}
 		addPaddle();
 		addBall();
+		addStartLabel();
 		gameOver = false;
+	}
+	
+	//Adds the start label to the canvas and centers
+	private void addStartLabel(){
+		startLabel = new GLabel("Click to Start", 0, 0);
+		startLabel.setFont(new Font("Serif", Font.PLAIN, 26));
+		int xLabel = (int)(getWidth() - startLabel.getWidth()) / 2; //find screen center in x direction
+		int yLabel = (int)(getHeight() - startLabel.getAscent()) /2 ;//find screen center in y direction
+		startLabel.move(xLabel, yLabel);
+		add(startLabel);
 	}
 	
 	//Adds the ball to the canvas
@@ -243,4 +254,5 @@ public class Breakout extends GraphicsProgram {
 	private double vx, vy; //x and y components of ball's velocity
 	private boolean gameOver;
 	private RandomGenerator rgen = RandomGenerator.getInstance();
+	private GLabel startLabel; //Gives me the label at the start of the game
 }
