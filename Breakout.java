@@ -124,9 +124,11 @@ public class Breakout extends GraphicsProgram {
 				updateScore(c);
 				remove(collider);
 				brickCounter --;
+				combo +=1;
 			}
 			else{
 				getNewvx();
+				combo = 1;
 			}
 		}
 		
@@ -138,20 +140,20 @@ public class Breakout extends GraphicsProgram {
 	
 	private void updateScore(Color c){
 		
-		if (Color.CYAN.equals(c)){
-			score += 100;
+		if (c.equals(Color.CYAN)){
+			score += 10;
 		}
 		else if (c.equals(Color.GREEN)){
-			score += 200 * combo;
+			score += 20 * combo;
 		}
 		else if (c.equals(Color.YELLOW)){
-			score += 500 * combo;
+			score += 50 * combo;
 		}
 		else if (c.equals(Color.ORANGE)){
-			score += 1000 * combo;
+			score += 100 * combo;
 		}
 		else if (c.equals(Color.RED)){
-			score += 5000 * combo;
+			score += 200 * combo;
 		}
 		remove(scoreLabel);
 		updateScoreLabel();
