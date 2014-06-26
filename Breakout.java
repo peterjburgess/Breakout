@@ -126,7 +126,7 @@ public class Breakout extends GraphicsProgram {
 		int xFarLeft = (int) (paddle.getX() + PADDLE_WIDTH / 10);
 		int xMidLeft = (int) (paddle.getX() + 2 * PADDLE_WIDTH / 5);
 		int xMiddle = (int) (paddle.getX() + 3 * PADDLE_WIDTH / 5);
-		int xMidRight = (int) (paddle.getX() + 4 * PADDLE_WIDTH / 10);
+		int xMidRight = (int) (paddle.getX() + 9 * PADDLE_WIDTH / 10);
 		int xFarRight = (int) (paddle.getX() + PADDLE_WIDTH);
 		
 		//find bottom of the ball
