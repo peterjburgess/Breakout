@@ -148,7 +148,7 @@ public class Breakout extends GraphicsProgram {
 		else if (collider.getColor() == Color.ORANGE){
 			score += 1000 * combo;
 		}
-		else{
+		else if (collider.getColor() == Color.RED){
 			score += 5000 * combo;
 		}
 		remove(scoreLabel);
