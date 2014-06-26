@@ -104,6 +104,7 @@ public class Breakout extends GraphicsProgram {
 		if(ball.getY() >= APPLICATION_HEIGHT - 2 * BALL_RADIUS)
 		{
 			lives --;
+			updateLivesLabel();
 			if (lives == 0){
 				gameOver = true;
 			}
