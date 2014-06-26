@@ -65,16 +65,12 @@ public class Breakout extends GraphicsProgram {
 		
 		boardSetup();	//sets up the board
 		addMouseListeners();
-		if(gameStart){
-			remove(startLabel);
-			play();
-		}
+		play();
 
 	}
 	
 	
 	private void play(){
-		//ball.move(vx, vy);
 		waitForClick();
 		remove(startLabel);
 		while(!gameOver){
