@@ -108,6 +108,7 @@ public class Breakout extends GraphicsProgram {
 			updateLivesLabel();
 			if (lives == 0){
 				gameOver = true;
+				declareGameOver();
 			}
 			else{
 				remove(ball);
@@ -299,6 +300,17 @@ public class Breakout extends GraphicsProgram {
 		int yLabel = (int)(getHeight() - winnerLabel.getAscent()) /2 ;//find screen centre in y direction
 		winnerLabel.move(xLabel, yLabel);
 		add(winnerLabel);
+		remove(ball);
+		remove(paddle);
+	}
+	
+	private void declareGameOver(){
+		GLabel gameOverLabel = new GLabel("Game Over!", 0, 0);
+		gameOverLabel.setFont(new Font("Serif", Font.PLAIN, 26));
+		int xLabel = (int)(getWidth() - gameOverLabel.getWidth()) / 2; //find screen centre in x direction
+		int yLabel = (int)(getHeight() - gameOverLabel.getAscent()) /2 ;//find screen centre in y direction
+		gameOverLabel.move(xLabel, yLabel);
+		add(gameOverLabel);
 		remove(ball);
 		remove(paddle);
 	}
