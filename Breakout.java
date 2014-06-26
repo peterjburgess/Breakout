@@ -116,13 +116,8 @@ public class Breakout extends GraphicsProgram {
 		}
 		//check for collision with objects
 		GObject collider = getCollidingObject();
-		if(collider == livesLabel){
-			remove(livesLabel);
-			pause(DELAY);
-			lives --;
-			updateLivesLabel();
-		}
-		else if(collider != null){
+
+		if(collider != null && collider != livesLabel){
 			vy = - vy;
 			if (collider != paddle){
 				remove(collider);
