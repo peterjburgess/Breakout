@@ -120,7 +120,8 @@ public class Breakout extends GraphicsProgram {
 		if(collider != null && collider != livesLabel && collider != scoreLabel){
 			vy = - vy;
 			if (collider != paddle){
-				updateScore(collider);
+				Color c = collider.getColor();
+				updateScore(c);
 				remove(collider);
 				brickCounter --;
 			}
@@ -135,9 +136,8 @@ public class Breakout extends GraphicsProgram {
 	 * updates the score based on the brick colour and current combo number
 	 */
 	
-	private void updateScore(GObject collider){
+	private void updateScore(Color c){
 		
-		Color c = collider.getColor();
 		if (Color.CYAN.equals(c)){
 			score += 100;
 		}
