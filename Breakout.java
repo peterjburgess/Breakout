@@ -139,7 +139,7 @@ public class Breakout extends GraphicsProgram {
 		
 		Color c = collider.getColor();
 		if (Color.CYAN.equals(c)){
-			score += 100 * combo;
+			score += 100;
 		}
 		else if (c.equals(Color.GREEN)){
 			score += 200 * combo;
