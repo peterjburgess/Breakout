@@ -148,10 +148,10 @@ public class Breakout extends GraphicsProgram {
 	
 	//starts the game upon click of the mouse
 	public void mouseClicked(MouseEvent e){
-		if (!gameStart) {
-			remove(startLabel);
+		//if (!gameStart) {
+			//remove(startLabel);
 			gameStart = true;
-		}
+		//}
 	}
 	
 
