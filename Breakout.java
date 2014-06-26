@@ -70,19 +70,14 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	
-	
 	private void play(){
-		moveBall();
-	}
-	
-	private void moveBall(){
-		ball.move(vx, vy);
-		/*while(!gameOver){
+		//ball.move(vx, vy);
+		while(!gameOver){
 			ball.move(vx,vy);
 			pause(DELAY);
 			checkForCollision();
 		
-		}*/
+		}
 	}
 	
 	
@@ -153,7 +148,7 @@ public class Breakout extends GraphicsProgram {
 	public void mouseClicked(MouseEvent e){
 		if (!gameStart) {
 			remove(startLabel);
-			moveBall();
+			play();
 			gameStart = true;
 		}
 	}
