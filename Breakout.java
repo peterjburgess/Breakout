@@ -222,6 +222,22 @@ public class Breakout extends GraphicsProgram {
 		addBall();
 		addStartLabel();
 		gameOver = false;
+		lives = NTURNS;
+		score = 0;
+		updateLivesLabel();
+		updateScoreLabel();
+	}
+	
+	//Adds the lives label and puts it in the bottom left, updates when life is lost
+	private void updateLivesLabel(){
+		livesLabel = new GLabel("Lives: " + lives, 0, getHeight());
+		add(livesLabel);
+	}
+	
+	//Updates score label with  new score when required
+	private void updateScoreLabel(){
+		scoreLabel = new GLabel("Score: " + score, 0, 0);
+		add(scoreLabel);
 	}
 	
 	//Adds the start label to the canvas and centres
@@ -321,5 +337,9 @@ public class Breakout extends GraphicsProgram {
 	private boolean gameOver;
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private GLabel startLabel; //Gives me the label at the start of the game
-	int brickCounter; //Keeps track of the number of bricks on the screen.
+	private int brickCounter; //Keeps track of the number of bricks on the screen.
+	private int score; //Keeps track of the games score
+	private int lives; //Keeps track of the number of lives remaining
+	private GLabel scoreLabel; //displays the score
+	private GLabel livesLabel; //displays the number of lives
 }
