@@ -150,8 +150,11 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	public void mouseClicked(MouseEvent e){
-		remove(startLabel);
-		moveBall();
+		if (!gameStart) {
+			remove(startLabel);
+			moveBall();
+			gameStart = true;
+		}
 	}
 	
 
@@ -174,6 +177,7 @@ public class Breakout extends GraphicsProgram {
 		addBall();
 		addStartLabel();
 		gameOver = false;
+		gameStart = false;
 	}
 	
 	//Adds the start label to the canvas and centers
@@ -261,4 +265,5 @@ public class Breakout extends GraphicsProgram {
 	private boolean gameOver;
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private GLabel startLabel; //Gives me the label at the start of the game
+	private boolean gameStart;
 }
