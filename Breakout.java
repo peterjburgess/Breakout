@@ -117,10 +117,11 @@ public class Breakout extends GraphicsProgram {
 		//check for collision with objects
 		GObject collider = getCollidingObject();
 
-		if(collider != null && collider != livesLabel){
+		if(collider != null && collider != livesLabel && collider != scoreLabel){
 			vy = - vy;
 			if (collider != paddle){
 				remove(collider);
+				updateScore(collider);
 				brickCounter --;
 			}
 			else{
@@ -130,6 +131,29 @@ public class Breakout extends GraphicsProgram {
 		
 	}
 	
+	/*
+	 * updates the score based on the brick colour and current combo number
+	 */
+	
+	private void updateScore(GObject collider){
+		if (collider.getColor() == Color.CYAN){
+			score += 100 * combo;
+		}
+		else if (collider.getColor() == Color.GREEN){
+			score += 200 * combo;
+		}
+		else if (collider.getColor() == Color.YELLOW){
+			score += 500 * combo;
+		}
+		else if (collider.getColor() == Color.ORANGE){
+			score += 1000 * combo;
+		}
+		else{
+			score += 5000 * combo;
+		}
+		remove(scoreLabel);
+		updateScoreLabel();
+	}
 	/*
 	 * method changes the horizontal velocity of the ball depending on where in the paddle the ball hits. The paddle is split
 	 * into 5 sections, the middle section won't change vx, the next two either side will give vx 
@@ -356,4 +380,5 @@ public class Breakout extends GraphicsProgram {
 	private int lives; //Keeps track of the number of lives remaining
 	private GLabel scoreLabel; //displays the score
 	private GLabel livesLabel; //displays the number of lives
+	private int combo = 1;
 }
