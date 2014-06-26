@@ -117,8 +117,8 @@ public class Breakout extends GraphicsProgram {
 		//check for collision with objects
 		GObject collider = getCollidingObject();
 		if(collider == livesLabel){
-			lives --;
 			remove(livesLabel);
+			lives --;
 			updateLivesLabel();
 		}
 		else if(collider != null){
