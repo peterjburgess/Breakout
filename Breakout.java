@@ -332,6 +332,7 @@ public class Breakout extends GraphicsProgram {
 			GRect rect = new GRect(xCoord, yCoord, BRICK_WIDTH, BRICK_HEIGHT); 
 			rect.setFilled(true);
 			rect.setFillColor(color);
+			rect.setColor(color);
 			add(rect);
 			xCoord += BRICK_WIDTH + BRICK_SEP;
 			brickCounter ++;
