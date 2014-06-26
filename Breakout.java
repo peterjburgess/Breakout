@@ -111,6 +111,7 @@ public class Breakout extends GraphicsProgram {
 			vy = - vy;
 			if (collider != paddle){
 				remove(collider);
+				brickCounter --;
 			}
 			else{
 				getNewvx();
