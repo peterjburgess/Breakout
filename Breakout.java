@@ -58,6 +58,9 @@ public class Breakout extends GraphicsProgram {
 	
 /** delay between moves */
 	private static final int DELAY = 10;
+	
+/** max value for horizontal velocity */
+	private static final double VX_MAX = 3.0;
 
 /** Runs the Breakout program. */
 	
@@ -105,10 +108,58 @@ public class Breakout extends GraphicsProgram {
 			if (collider != paddle){
 				remove(collider);
 			}
+			else{
+				getNewvx();
+			}
 		}
 		
 	}
 	
+	/*
+	 * method changes the horizontal velocity of the ball depending on where in the paddle the ball hits. The paddle is split
+	 * into 5 sections, the middle section won't change vx, the next two either side will give vx some component in that direction
+	 * and the far ends will give it maximum velocity in that direction
+	 */
+	private void getNewvx(){
+		
+		//separate the paddle into 5 sections
+		int xFarLeft = (int) (paddle.getX() + PADDLE_WIDTH / 5);
+		int xMidLeft = (int) (paddle.getX() + 2 * PADDLE_WIDTH / 5);
+		int xMiddle = (int) (paddle.getX() + 3 * PADDLE_WIDTH / 5);
+		int xMidRight = (int) (paddle.getX() + 4 * PADDLE_WIDTH / 5);
+		int xFarRight = (int) (paddle.getX() + PADDLE_WIDTH);
+		
+		//find bottom of the ball
+		int ballBottom = (int) (ball.getX() + BALL_RADIUS);
+		
+		if(ballBottom < xFarLeft){
+			vx = - VX_MAX;
+		}
+		else if (ballBottom < xMidLeft){
+			if (vx > -VX_MAX + 1.5)
+				vx -= 1.5;
+			else
+				vx = -VX_MAX;	
+		}
+		else if (ballBottom < xMiddle){
+			vx = vx;
+		}
+		else if (ballBottom < xMidRight){
+			if(vx < VX_MAX - 1.5)
+				vx += 1.5;
+			else
+				vx = VX_MAX;	
+		}
+		else{
+			vx = VX_MAX;
+		}
+		
+	}
+	
+	/*
+	 * Method checks four corners of the box bounding ball to see if there is an object there. If there is,
+	 * that object is returned. 
+	 */
 	private GObject getCollidingObject(){
 		GObject collider = getElementAt(ball.getX(), ball.getY());
 		for(int i = 0; i < 4; i++){
