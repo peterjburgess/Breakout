@@ -32,10 +32,10 @@ public class Breakout extends GraphicsProgram {
 	private static final int PADDLE_Y_OFFSET = 30;
 
 /** Number of bricks per row */
-	private static final int NBRICKS_PER_ROW = 3;//10;
+	private static final int NBRICKS_PER_ROW = 10;
 
 /** Number of rows of bricks */
-	private static final int NBRICK_ROWS = 3;//10;
+	private static final int NBRICK_ROWS = 10;
 
 /** Separation between bricks */
 	private static final int BRICK_SEP = 4;
@@ -141,8 +141,8 @@ public class Breakout extends GraphicsProgram {
 			vx = - VX_MAX;
 		}
 		else if (ballBottom < xMidLeft){
-			if (vx > -VX_MAX + 1.5)
-				vx -= 1.5;
+			if (vx > -VX_MAX + 1.2)
+				vx -= 1.2;
 			else
 				vx = -VX_MAX;	
 		}
@@ -150,8 +150,8 @@ public class Breakout extends GraphicsProgram {
 			vx = vx;
 		}
 		else if (ballBottom < xMidRight){
-			if(vx < VX_MAX - 1.5)
-				vx += 1.5;
+			if(vx < VX_MAX - 1.2)
+				vx += 1.2;
 			else
 				vx = VX_MAX;	
 		}
