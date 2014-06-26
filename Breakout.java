@@ -65,7 +65,7 @@ public class Breakout extends GraphicsProgram {
 		
 		addMouseListeners();
 		boardSetup();	//sets up the board
-		play();
+		//play();
 
 	}
 	
