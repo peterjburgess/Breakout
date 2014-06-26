@@ -75,6 +75,8 @@ public class Breakout extends GraphicsProgram {
 	
 	private void play(){
 		//ball.move(vx, vy);
+		waitForClick();
+		remove(startLabel);
 		while(!gameOver){
 			ball.move(vx,vy);
 			pause(DELAY);
@@ -144,14 +146,6 @@ public class Breakout extends GraphicsProgram {
 		}
 		else {
 			paddle.setLocation(APPLICATION_WIDTH - PADDLE_WIDTH, yPaddle);
-		}
-	}
-	
-	//starts the game upon click of the mouse
-	public void mouseClicked(MouseEvent e){
-		if (!gameStart) {
-			//remove(startLabel);
-			gameStart = true;
 		}
 	}
 	
