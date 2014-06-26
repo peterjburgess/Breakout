@@ -76,13 +76,13 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void moveBall(){
-		//ball.move(vx, vy);
-		while(!gameOver){
+		ball.move(vx, vy);
+		/*while(!gameOver){
 			ball.move(vx,vy);
 			pause(DELAY);
 			checkForCollision();
 		
-		}
+		}*/
 	}
 	
 	
