@@ -123,10 +123,10 @@ public class Breakout extends GraphicsProgram {
 	private void getNewvx(){
 		
 		//separate the paddle into 5 sections
-		int xFarLeft = (int) (paddle.getX() + PADDLE_WIDTH / 5);
+		int xFarLeft = (int) (paddle.getX() + PADDLE_WIDTH / 10);
 		int xMidLeft = (int) (paddle.getX() + 2 * PADDLE_WIDTH / 5);
 		int xMiddle = (int) (paddle.getX() + 3 * PADDLE_WIDTH / 5);
-		int xMidRight = (int) (paddle.getX() + 4 * PADDLE_WIDTH / 5);
+		int xMidRight = (int) (paddle.getX() + 4 * PADDLE_WIDTH / 10);
 		int xFarRight = (int) (paddle.getX() + PADDLE_WIDTH);
 		
 		//find bottom of the ball
