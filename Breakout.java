@@ -376,7 +376,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	/*
-	 * Adds paddle to the game board at the start
+	 * Adds paddle to the game board at startup
 	 */
 	private void addPaddle(){
 		int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
