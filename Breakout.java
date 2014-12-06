@@ -240,7 +240,7 @@ public class Breakout extends GraphicsProgram {
 		}
 		else {
 			paddle.setLocation(APPLICATION_WIDTH - PADDLE_WIDTH, yPaddle); //if mouse is close to or off right side of window, keep paddle at right edge
-		}
+	}
 	}
 	
 
@@ -376,7 +376,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	/*
-	 * Adds paddle to the game board at startup
+	 * Adds paddle to the game board at the start
 	 */
 	private void addPaddle(){
 		int xCoord = WIDTH/2 - PADDLE_WIDTH / 2;
